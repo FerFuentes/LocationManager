@@ -12,8 +12,9 @@ public enum PresenceAction: String {
     case stop
 }
 
-#if os(iOS)
+
 class GeofencingManager: @unchecked Sendable {
+#if os(iOS)
     static let shared = GeofencingManager()
     
     private let sharedLocationManager = SharedLocationManager.shared
@@ -145,7 +146,8 @@ class GeofencingManager: @unchecked Sendable {
 
         logger.log("\(event == .entry ? "⬇️" : "⬆️") \(event) to: \(identifier), type: \(presenceType)", level: .info)
     }
-}
 #endif
+}
+
     
 

@@ -7,23 +7,25 @@
 import Combine
 import CoreLocation
 
-#if os(iOS)
+
 public protocol GeofencingActivity {
+#if os(iOS)
     func enableLogging(_ enabled: Bool)
     func monitoring(for regions: [CLRegion], action: PresenceAction)
     var transitionEvent: Published<TransitionEvent?>.Publisher { get }
+#endif
 }
 
 extension GeofencingActivity {
-    
-    func enableLogging(_ enabled: Bool) {
+#if os(iOS)
+    public func enableLogging(_ enabled: Bool) {
         GeofencingManager.shared.enableLogging(enabled)
     }
     
-    func monitoring(for regions: [CLRegion], action: PresenceAction) {
+    public func monitoring(for regions: [CLRegion], action: PresenceAction) {
         GeofencingManager.shared.monitoring(for: regions, action: action)
     }
     
-    var transitionEvent:  Published<TransitionEvent?>.Publisher { GeofencingManager.shared.transition }
-}
+    public var transitionEvent:  Published<TransitionEvent?>.Publisher { GeofencingManager.shared.transition }
 #endif
+}

@@ -14,10 +14,10 @@ public protocol LocationPermission {
 
 extension LocationPermission {
     
-    func requestAlwaysAuthorization() {
+    public func requestAlwaysAuthorization() {
         let locationManager = SharedLocationManager.shared
         locationManager.requestAlwaysAuthorization()
     }
     
-    var permissionStatus: Published<PermissionStatus>.Publisher { SharedLocationManager.shared.locationPermissionStatus }
+    public var permissionStatus: Published<PermissionStatus>.Publisher { SharedLocationManager.shared.locationPermissionStatus }
 }

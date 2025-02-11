@@ -26,6 +26,6 @@ extension GeofencingActivity {
         GeofencingManager.shared.monitoring(for: regions, action: action)
     }
     
-    public var transitionEvent:  Published<TransitionEvent?>.Publisher { GeofencingManager.shared.transition }
+    public var transitionEvent: Published<TransitionEvent?>.Publisher { GeofencingManager.shared.transition }
 #endif
 }

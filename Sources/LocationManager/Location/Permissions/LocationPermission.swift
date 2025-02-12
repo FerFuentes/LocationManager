@@ -9,6 +9,7 @@ import Combine
 public protocol LocationPermission {
     func requestAlwaysAuthorization()
     var permissionStatus: Published<PermissionStatus>.Publisher { get }
+    var isLocationPermissionGranted: Bool { get}
 }
 
 
@@ -20,4 +21,5 @@ extension LocationPermission {
     }
     
     public var permissionStatus: Published<PermissionStatus>.Publisher { SharedLocationManager.shared.locationPermissionStatus }
+    public var isLocationPermissionGranted: Bool { SharedLocationManager.shared.isLocationPermissionGranted }
 }
